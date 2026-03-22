@@ -1,7 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import logging
 import re
 import json
 import os
+import asyncio
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
     ApplicationBuilder,
@@ -13,7 +17,6 @@ from telegram.ext import (
     filters
 )
 
-# --- CONFIG ---
 # --- CONFIG ---
 BOT_TOKEN = "7615544436:AAGhkg84m-nGyMxkqk072NGoUjtVwq8LFT0"
 ADMIN_ID = 7533465237
@@ -247,7 +250,7 @@ async def cmd_broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(f"Broadcast sent to {success} users.")
 
 # --- Main ---
-def main():
+async def main():
     app = ApplicationBuilder().token(BOT_TOKEN).build()
 
     conv_handler = ConversationHandler(
@@ -268,7 +271,7 @@ def main():
     app.add_handler(CommandHandler("user", cmd_user))
     app.add_handler(CommandHandler("broadcast", cmd_broadcast))
 
-    app.run_polling()
+    await app.run_polling()
 
 if __name__ == "__main__":
-    main()	
+    asyncio.run(main())
