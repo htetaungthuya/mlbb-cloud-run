@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 import logging
 import re
 import json
@@ -79,8 +76,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         "အားပေးမှုအတွက် ကျေးဇူးတင်ပါတယ်ဗျ 🙏\n"
         "ကောင်းသောနေ့လေး ပိုင်ဆိုင်နိုင်ပါစေ 🌸"
     )
-
-    # 2-column keyboard
     keyboard = []
     row = []
     for idx, (name, price) in enumerate(packages.items(), 1):
@@ -100,7 +95,6 @@ async def select_package(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     query = update.callback_query
     await query.answer()
     package_name = query.data
-
     context.user_data["package"] = package_name
     uid = str(update.effective_user.id)
     orders[uid] = {"package": package_name, "status": "pending"}
