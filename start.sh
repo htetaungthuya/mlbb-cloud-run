@@ -1,5 +1,3 @@
 #!/bin/bash
-# Termux & Render friendly start script
-# Activate virtualenv (Render does this automatically)
-# Run bot
+# Render / Termux friendly start script
 python3 ml.py
