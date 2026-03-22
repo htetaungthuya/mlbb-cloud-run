@@ -1,18 +1,9 @@
-# Python
 __pycache__/
 *.pyc
-
-# Logs / DB
 *.log
 *.sqlite
 *.db
-
-# Node / JS
 node_modules/
-
-# OS / Editor
 .DS_Store
 Thumbs.db
-
-# Env
 .env

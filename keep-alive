@@ -1,0 +1,15 @@
+#!/bin/bash
+# ===============================
+# Render free instance keep-alive
+# Ping your Render web service every 5 minutes
+# ===============================
+
+# Replace with your Render bot URL
+BOT_URL="https://mlbb-cloud-run.onrender.com"
+
+while true; do
+    echo "✅ Pinging Render instance..."
+    curl -s $BOT_URL > /dev/null
+    echo "Waiting 5 minutes..."
+    sleep 300  # 5 minutes
+done
